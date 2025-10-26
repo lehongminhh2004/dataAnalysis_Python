@@ -49,3 +49,15 @@ def show_ml_section():
         })
         pred = model.predict(input_data)[0]
         st.success(f"💡 Dự đoán Happiness_Index ≈ **{pred:.2f}/10**")
+        # --- Hiển thị tầm quan trọng yếu tố nếu dùng Random Forest ---
+    if model_type == "Random Forest":
+        import plotly.graph_objects as go
+        importance = model.feature_importances_
+        fig_imp = go.Figure(go.Bar(
+            x=importance,
+            y=X.columns,
+            orientation='h'
+        ))
+        fig_imp.update_layout(title="🎯 Tầm quan trọng của các yếu tố ảnh hưởng đến Happiness")
+        st.plotly_chart(fig_imp, use_container_width=True)
+    
