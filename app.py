@@ -15,10 +15,17 @@ st.set_page_config(
 # --- SIDEBAR ---
 st.sidebar.title("📊 Dashboard Menu")
 menu = st.sidebar.radio("📍 Chọn nội dung:", 
-                        ["Dataset Overview", "EDA Dashboard", "Machine Learning", "Regression Analysis", "Insight & Recommendation"])
+                        [
+        "Dataset Overview",
+        "EDA Dashboard",
+        "Machine Learning",
+        "Regression Analysis",
+        "Insight & Recommendation"
+    ]
+)
 
 # --- MAIN CONTENT ---
-if menu == "Giới thiệu":
+if menu == "Dataset Overview":
     st.title("🧠 Mental Health & Social Media Balance")
     st.markdown("""
     ### 🎯 Mục tiêu
@@ -32,13 +39,13 @@ if menu == "Giới thiệu":
     st.dataframe(df.head())
     st.write(f"📦 Tổng số dòng: {df.shape[0]}, Cột: {df.shape[1]}")
 
-elif menu == "Phân tích hồi quy":
-    show_regression_analysis()
-
 elif menu == "EDA Dashboard":
     show_eda_dashboard()
 
-elif menu == "Dự đoán Happiness":
+elif menu == "Regression Analysis":
+    show_regression_analysis()
+
+elif menu == "Machine Learning":
     show_ml_section()
 elif menu == "Insight & Recommendation":
     st.title("📄 Tổng kết & Khuyến nghị")

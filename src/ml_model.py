@@ -56,6 +56,8 @@ def show_ml_section():
     col4.metric("Adj R²", f"{adj_r2:.3f}")
     col5.metric("Samples", f"{n}")
 
+    
+
     # --- So sánh Linear vs Random Forest ---
     st.markdown("### ⚖️ So sánh hiệu suất các mô hình")
     models = {
